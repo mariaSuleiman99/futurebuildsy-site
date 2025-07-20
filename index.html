@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Build - Coming Soon</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="content">
+        <header>
+            <img src="logo1.png" alt="Future Build Logo" class="logo">
+            <h1>Future Build</h1>
+            <h2>Coming Soon!<br><span class="arabic">!قريباً</span></h2>
+        </header>
+        <main>
+            <p class="tagline">Building Syria's Future, Together.</p>
+            <p class="description">
+                Future Build Holding is your dedicated partner, uniquely positioned to invest, trade, and rebuild Syria. We are actively shaping the future of the Middle East's industrial heartland.
+            </p>
+        </main>
+    </div>
+    <script>
+ document.addEventListener('DOMContentLoaded', function() {
+  const footerContent = document.querySelector('.footer-content');
+  const footerItems = document.querySelectorAll('.footer-content span');
+  let animationId;
+  let speed = 1.5; // Adjust scrolling speed (higher = faster)
+  
+  // Calculate width of one complete set of contact info
+  let singleLoopWidth = 0;
+  const itemsPerLoop = 3; // Syria, Europe, Email
+  for (let i = 0; i < itemsPerLoop; i++) {
+    singleLoopWidth += footerItems[i].offsetWidth + 40; // 40px gap
+  }
+
+  function animateFooter(timestamp) {
+    // Calculate position using modulo for perfect looping
+    const position = (timestamp * speed * 0.05) % singleLoopWidth;
+    footerContent.style.transform = `translateX(-${position}px)`;
+    animationId = requestAnimationFrame(animateFooter);
+  }
+
+  // Start animation
+  animationId = requestAnimationFrame(animateFooter);
+
+  // // Pause on hover
+  // footerContent.addEventListener('mouseenter', () => {
+  //   cancelAnimationFrame(animationId);
+  // });
+  
+  footerContent.addEventListener('mouseleave', () => {
+    animationId = requestAnimationFrame(animateFooter);
+  });
+
+  // Clean up when page is hidden
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(animationId);
+    } else {
+      animationId = requestAnimationFrame(animateFooter);
+    }
+  });
+});
+    </script>  
+</body>
+ <footer id="scrollingFooter">
+  <div class="footer-container">
+    <div class="footer-content">
+      <!-- Triple the content for perfect looping -->
+      <span>Syria: +963 996 785 785</span>
+      <span>Europe: +32 456 70 17 64</span>
+      <span>Email: info@futurebuildsy.com</span>
+      <span>Syria: +963 996 785 785</span>
+      <span>Europe: +32 456 70 17 64</span>
+      <span>Email: info@futurebuildsy.com</span>
+      <span>Syria: +963 996 785 785</span>
+      <span>Europe: +32 456 70 17 64</span>
+      <span>Email: info@futurebuildsy.com</span>
+    </div>
+  </div>
+</footer>
+</html>
