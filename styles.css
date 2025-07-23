@@ -118,6 +118,18 @@ footer {
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
 }
 
+/* Style all footer links (tel: and mailto:) */
+#scrollingFooter a {
+    color: #000000; /* Black color */
+    text-decoration: underline; /* Add underline */
+    transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+/* Optional: Change color on hover */
+#scrollingFooter a:hover {
+    color: #555555; /* Light gray on hover */
+}
+
 .footer-container {
   width: 100%;
   overflow: hidden;
